@@ -1,12 +1,13 @@
 import socket
 
-HOST = '192.168.43.71'    # The remote host
+HOST = '192.168.43.107'    # The remote host
 PORT = 3000              # The same port as used by the server
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
     while True:
         print('mensaje:')
         msg=input()
-        s.sendall(msg.encode())
-        data = s.recv(1024)
-        print('Received', repr(data))
+        if msg !='':
+            s.sendall(msg.encode())
+            data = s.recv(1024)
+            print('Received', repr(data.decode('ascii')))
