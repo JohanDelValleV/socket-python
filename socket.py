@@ -1,6 +1,5 @@
 import socket
-
-HOST = ''
+HOST = '192.168.43.71'
 PORT = 3000
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORT))
