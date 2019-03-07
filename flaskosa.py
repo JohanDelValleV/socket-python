@@ -1,9 +1,12 @@
-from flask import Flask
-app = Flask(__name__)
+from flask import Flask, render_template
+from flask_socketio import SocketIO
+
+app = Flask(__name__, template_folder='template')
+socketio = SocketIO(app)
 
 @app.route("/")
-def hello():
-    return "Hello World!"
+def index():
+    return render_template("index.html")
     
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0')
